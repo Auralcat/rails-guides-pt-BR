@@ -775,18 +775,18 @@ Set-Cookie: _blog_session=...snip...; path=/; HttpOnly
 Cache-Control: no-cache
 ```
 
-Structuring Layouts
+Estruturando Layouts
 -------------------
 
-When Rails renders a view as a response, it does so by combining the view with the current layout, using the rules for finding the current layout that were covered earlier in this guide. Within a layout, you have access to three tools for combining different bits of output to form the overall response:
+Quando o Rails renderiza a *view* como uma resposta, ele faz isso combinando a *view* com o *layout* atual, usando as regras pra achar o *layout* atual que foram mencionadas neste guia. Dentro de um *layout*, você tem acesso a três ferramentas para combinar pedaços diferentes de saídas para formar a resposta geral:
 
-* Asset tags
-* `yield` and `content_for`
-* Partials
+* *Asset tags*
+* `yield` e `content_for`
+* *Partials*
 
-### Asset Tag Helpers
+### Helpers de *Asset Tags*
 
-Asset tag helpers provide methods for generating HTML that link views to feeds, JavaScript, stylesheets, images, videos, and audios. There are six asset tag helpers available in Rails:
+Helpers de *Asset Tags* fornecem métodos para gerar HTML que liga *views* a *feeds*, JavaScript, *stylesheets*, imagens, vídeos, e áudios. Há seis helpers de *asset tags* disponíveis no Rails:
 
 * `auto_discovery_link_tag`
 * `javascript_include_tag`
@@ -795,24 +795,24 @@ Asset tag helpers provide methods for generating HTML that link views to feeds, 
 * `video_tag`
 * `audio_tag`
 
-You can use these tags in layouts or other views, although the `auto_discovery_link_tag`, `javascript_include_tag`, and `stylesheet_link_tag`, are most commonly used in the `<head>` section of a layout.
+Você pode usar essas *tags* em *layouts* ou outras *views*, embora os métodos `auto_discovery_link_tag`, `javascript_include_tag` e `stylesheet_link_tag` apareçam mais na seção `<head>` de um *layout*.
 
-WARNING: The asset tag helpers do _not_ verify the existence of the assets at the specified locations; they simply assume that you know what you're doing and generate the link.
+WARNING: Os helpers de *asset tags* _não_ verificam a existência dos *assets* nos endereços específicos; eles simplesmente presumem que você sabe o que está fazendo e geram o link.
 
-#### Linking to Feeds with the `auto_discovery_link_tag`
+#### Ligando a *Feeds* com o método `auto_discovery_link_tag`
 
-The `auto_discovery_link_tag` helper builds HTML that most browsers and feed readers can use to detect the presence of RSS, Atom, or JSON feeds. It takes the type of the link (`:rss`, `:atom`, or `:json`), a hash of options that are passed through to url_for, and a hash of options for the tag:
+O *helper* `auto_discovery_link_tag` monta HTML que a maioria dos navegadores e leitores de *feeds* conseguem usar para detectar a presenta de *feeds* RSS, Atom, ou JSON. Ele recebe o tipo de link (`:rss`, `:atom`, or `:json`), um *hash* de opções que são encaminhados para url_for, e um *hash* de opções para a *tag*:
 
 ```erb
 <%= auto_discovery_link_tag(:rss, {action: "feed"},
   {title: "RSS Feed"}) %>
 ```
 
-There are three tag options available for the `auto_discovery_link_tag`:
+Há três opções de *tags* disponíveis para o método `auto_discovery_link_tag`:
 
-* `:rel` specifies the `rel` value in the link. The default value is "alternate".
-* `:type` specifies an explicit MIME type. Rails will generate an appropriate MIME type automatically.
-* `:title` specifies the title of the link. The default value is the uppercase `:type` value, for example, "ATOM" or "RSS".
+* `:rel` especifica o valore `rel` no link. O valor padrão é "alternate".
+* `:type` especifica um *MIME type* explícito. O Rails criará um *MIME type* apropriado automaticamente.
+* `:title` especifica o título do link. O valor padrão é o valor definido em `:type` com letras maiúsculas, por exemplo, "ATOM" ou "RSS".
 
 #### Linking to JavaScript Files with the `javascript_include_tag`
 
