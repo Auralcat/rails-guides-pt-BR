@@ -83,6 +83,27 @@ level of the message is equal to or higher than the configured log level.
 > Quando algo é adicionado ao *log*, ele é impresso no registro correspondente
 caso o nível de *log* da mensagem seja igual ou maior ao nível configurado.
 
+*Código de exemplo*: costumamos deixar o código em si em inglês mesmo e
+realizamos a tradução apenas nos trechos de comentário. Exemplo:
+
+``` ruby
+# A comment has appeared! It explains the intention of the code.
+Client.connection.select_all("SELECT first_name, created_at FROM clients WHERE id = '1'").to_a
+# => [
+#   {"first_name"=>"Rafael", "created_at"=>"2012-11-10 23:23:45.281189"},
+#   {"first_name"=>"Eileen", "created_at"=>"2013-12-09 11:22:35.221282"}
+# ]
+```
+
+``` ruby
+# Um comentário apareceu! Ele explica a intenção do código.
+Client.connection.select_all("SELECT first_name, created_at FROM clients WHERE id = '1'").to_a
+# => [
+#   {"first_name"=>"Rafael", "created_at"=>"2012-11-10 23:23:45.281189"},
+#   {"first_name"=>"Eileen", "created_at"=>"2013-12-09 11:22:35.221282"}
+# ]
+```
+
 ## TIP, NOTE e WARNING
 Existem algumas marcações que aparecem como TIP: , NOTE: ou WARNING:. Tais
 marcações não devem ser traduzidas, pois elas são interpretadas para renderizar
